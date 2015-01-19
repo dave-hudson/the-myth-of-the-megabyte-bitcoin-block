@@ -4,12 +4,12 @@ LDFLAGS := -std=c++11 -pthread
 RM := rm
 
 #
-# Define our target apps and their subdirectories.
+# Define our target app.
 #
-APPS := mb_block
+APP := mb_block
 
 #
-# Define the common subdirectories in our build.
+# Define the source files for our build.
 #
 MB_BLOCK_SRCS := mb_block.cc
 
@@ -24,7 +24,7 @@ MB_BLOCK_OBJS := $(patsubst %.cc,%.o,$(filter %.cc,$(MB_BLOCK_SRCS)))
 
 .PHONY: all
 
-all: $(APPS)
+all: $(APP)
 
 mb_block: $(MB_BLOCK_OBJS)
 	$(CC) $(LDFLAGS) -o $@ $(MB_BLOCK_OBJS)
@@ -34,8 +34,8 @@ mb_block: $(MB_BLOCK_OBJS)
 .PHONY: clean
 
 clean:
-	$(RM) -f $(APPS) *.o $(patsubst %,%/*.o,$(SUBDIRS))
-	$(RM) -f $(APPS) *.d $(patsubst %,%/*.d,$(SUBDIRS))
+	$(RM) -f $(APP) *.o $(patsubst %,%/*.o,$(SUBDIRS))
+	$(RM) -f $(APP) *.d $(patsubst %,%/*.d,$(SUBDIRS))
 
 .PHONY: realclean
 
