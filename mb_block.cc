@@ -107,7 +107,7 @@ int scan_pool_blocksize_csv()
 {
 	std::ifstream f;
 	
-	f.open("pool_blocksize.csv", std::ios::in);
+	f.open("pool_blocksize.csv", std::ifstream::in);
 
 	/*
 	 * Seriously lazy code with no error handling!  We *know* that the file has a very
